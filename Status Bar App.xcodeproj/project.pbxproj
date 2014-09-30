@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9311891119B0D5D400C42581 /* icon-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 9311891019B0D5D400C42581 /* icon-black.png */; };
-		9311891319B0D5D900C42581 /* icon-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9311891219B0D5D900C42581 /* icon-blue.png */; };
-		9311891519B0DB6700C42581 /* icon-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 9311891419B0DB6700C42581 /* icon-white.png */; };
 		934F36421992AB6D008E3300 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 934F36411992AB6D008E3300 /* Cocoa.framework */; };
 		934F364C1992AB6D008E3300 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934F364A1992AB6D008E3300 /* InfoPlist.strings */; };
 		934F364E1992AB6D008E3300 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 934F364D1992AB6D008E3300 /* main.m */; };
@@ -34,9 +31,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9311891019B0D5D400C42581 /* icon-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-black.png"; sourceTree = "<group>"; };
-		9311891219B0D5D900C42581 /* icon-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-blue.png"; sourceTree = "<group>"; };
-		9311891419B0DB6700C42581 /* icon-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-white.png"; sourceTree = "<group>"; };
 		934F363E1992AB6D008E3300 /* Status Bar App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Status Bar App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		934F36411992AB6D008E3300 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		934F36441992AB6D008E3300 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -125,9 +119,6 @@
 				934F36541992AB6D008E3300 /* AppDelegate.m */,
 				934F36561992AB6D008E3300 /* MainMenu.xib */,
 				934F36591992AB6D008E3300 /* Images.xcassets */,
-				9311891219B0D5D900C42581 /* icon-blue.png */,
-				9311891019B0D5D400C42581 /* icon-black.png */,
-				9311891419B0DB6700C42581 /* icon-white.png */,
 				934F36481992AB6D008E3300 /* Supporting Files */,
 			);
 			path = "Status Bar App";
@@ -239,11 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9311891119B0D5D400C42581 /* icon-black.png in Resources */,
 				934F364C1992AB6D008E3300 /* InfoPlist.strings in Resources */,
-				9311891319B0D5D900C42581 /* icon-blue.png in Resources */,
 				934F365A1992AB6D008E3300 /* Images.xcassets in Resources */,
-				9311891519B0DB6700C42581 /* icon-white.png in Resources */,
 				934F36521992AB6D008E3300 /* Credits.rtf in Resources */,
 				934F36581992AB6D008E3300 /* MainMenu.xib in Resources */,
 			);

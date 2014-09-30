@@ -8,120 +8,65 @@
 
 #import "AppDelegate.h"
 
+#define kAPI_URL @"https://data.sparkfun.com/output/JxxL7ZLvaMSNMJyOxLYW.json"
+#define kRefreshRateInSeconds 15
+
+@interface AppDelegate () {
+    NSURLConnection* _connection;
+    BOOL _connectionStarted;
+    NSTimer* _timer;
+}
+@end
+    
 @implementation AppDelegate
 
-@synthesize statusBar = _statusBar;
-
-- (void)applicationDidFinishLaunching:(NSNotification *)Notification
-{
-    
-}
-
-- (void) awakeFromNib {
-    
-    
-    
+- (void)awakeFromNib {
     self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    
     self.statusBar.title = @"Loading....";
-    
-    // you can also set an image
-    //self.statusBar.image =
-    
     self.statusBar.menu = self.menu;
-    //self.statusBar.highlightMode = YES;
     
-    
-    NSTimer *timer;
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval: 0.5
-                                             target: self
-                                           selector: @selector(refresh:)
-                                           userInfo: nil
-                                            repeats: YES];
-
-}
-- (void)statusApplicatinClicked:(id)sender {
-    }
-
--(IBAction)refresh:(id)sender{
-    NSString *json = @"https://data.sparkfun.com/output/JxxL7ZLvaMSNMJyOxLYW.json";
-    
-    
-    NSURL *url2 = [NSURL URLWithString: json];
-    NSData *JSON =[NSData dataWithContentsOfURL:url2];
-    
-    self.data =  [NSJSONSerialization JSONObjectWithData:JSON options:kNilOptions error:nil];
-    
-   
-    
-    
-        text = self.data[0][@"status"];
-    
-
-    
-    if ([self.statusBar.title isEqualToString:text]) {
-        
-    }
-    else{
-        if ([_button.title isEqualToString:@"ON"]) {
-            NSUserNotification *notification = [[NSUserNotification alloc] init];
-            notification.title = @"The bathroom is";
-            notification.informativeText = text;
-            notification.soundName = NSUserNotificationDefaultSoundName;
-            
-            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-        }
-        
-    }
-    if([text isEqualToString:@"Vacant"]){
-        
-        self.statusBar.image = [NSImage imageNamed:@"icon-black"];
-        
-        
-    }
-    else{
-        
-        self.statusBar.image = [NSImage imageNamed:@"icon-blue"];
-
-    }
-    
-    self.statusBar.title = text;
-
-
-//    if (self.menu.showsStateColumn) {
-//        self.statusBar.image =[NSImage imageNamed:@"icon-white"];
-//    }
-//    else {
-//        if([text isEqualToString:@"Vacant"]){
-//            
-//            self.statusBar.image = [NSImage imageNamed:@"icon-blue"];
-//            
-//            
-//        }
-//        else{
-//            
-//            self.statusBar.image = [NSImage imageNamed:@"icon-black"];
-//            
-//        }
-//
-//    }
-    
+    // initialize timer
+    _timer = [NSTimer scheduledTimerWithTimeInterval:kRefreshRateInSeconds target: self selector: @selector(refresh:) userInfo:nil repeats:YES];
+    [_timer fire];
 }
 
-- (IBAction)notifacations:(id)sender {
-    
-    if ([_button.title  isEqualToString: @"OFF"]) {
+- (IBAction)refresh:(id)sender {
+    if (!_connectionStarted) {
+        _connectionStarted = YES;
+        NSURL *url = [NSURL URLWithString:kAPI_URL];
+        NSURLRequest* urlRequest = [[NSURLRequest alloc] initWithURL:url];
+        _connection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
         
+        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+        [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            if (!error) {
+                NSMutableArray* response =  [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                NSString* status = response[0][@"status"];
+                
+                if ([_button.title isEqualToString:@"ON"]) {
+                    NSUserNotification *notification = [[NSUserNotification alloc] init];
+                    notification.title = @"The bathroom is";
+                    notification.informativeText = status;
+                    notification.soundName = NSUserNotificationDefaultSoundName;
+                    
+                    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+                }
+                
+                NSString* imageName = [status isEqualToString:@"Vacant"] ? @"icon-black" : @"icon-blue";
+                self.statusBar.image = [NSImage imageNamed:imageName];
+                self.statusBar.title = status;
+                _connectionStarted = NO;
+            }
+        }];
+    }
+}
+
+- (IBAction)notification:(id)sender {
+    if ([_button.title isEqualToString:@"OFF"]) {
         _button.title = @"ON";
-        
-    }
-    else{
-        
+    } else {
         _button.title = @"OFF";
-        
     }
-    
-    
 }
+
 @end

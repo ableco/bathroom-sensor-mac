@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,7 +10,7 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="button" destination="zYu-nq-XAT" id="hqe-2q-8Zc"/>
@@ -26,8 +26,9 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="e6V-ET-MVh"/>
-                <menuItem title="Notifacations" keyEquivalent="," id="2fg-od-dSJ">
+                <menuItem title="Notifications" keyEquivalent="," id="2fg-od-dSJ">
                     <connections>
+                        <action selector="notification:" target="Voe-Tx-rLC" id="iwb-J4-hns"/>
                         <outlet property="view" destination="8Tx-cb-Mgu" id="8QL-pz-bnp"/>
                     </connections>
                 </menuItem>
@@ -46,7 +47,6 @@
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qC4-P2-Er9">
                     <rect key="frame" x="6" y="7" width="154" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="   Notifacations" id="SSR-Xt-chb">
                         <font key="font" metaFont="system" size="15"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -55,14 +55,10 @@
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zYu-nq-XAT">
                     <rect key="frame" x="128" y="5" width="61" height="19"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="roundRect" title="OFF" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yjh-az-Qk1">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="cellTitle"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="notifacations:" target="Voe-Tx-rLC" id="jrB-C6-XnG"/>
-                    </connections>
                 </button>
             </subviews>
         </customView>

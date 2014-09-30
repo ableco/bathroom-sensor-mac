@@ -8,20 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>{
-    NSString *text;
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 
-}
-
-
-@property (strong) IBOutlet NSMenu *menu;
-@property (strong, nonatomic) NSStatusItem *statusBar;
--(IBAction)refresh:(id)sender;
-@property (strong, nonatomic) NSMutableArray *data;
-- (IBAction)notifacations:(id)sender;
-@property (weak) IBOutlet NSButton *button;
+@property (strong, nonatomic) IBOutlet NSMenu *menu;
 @property (unsafe_unretained) IBOutlet NSTextView *label;
+@property (weak, nonatomic)   IBOutlet NSButton *button;
 
- 
+@property (strong, nonatomic) NSStatusItem *statusBar;
+
+- (IBAction)refresh:(id)sender;
+- (IBAction)notification:(id)sender;
 
 @end
