@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E36b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -13,7 +14,6 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="button" destination="zYu-nq-XAT" id="hqe-2q-8Zc"/>
                 <outlet property="menu" destination="LyK-dl-4J3" id="WdI-Or-rQY"/>
             </connections>
         </customObject>
@@ -26,42 +26,15 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="e6V-ET-MVh"/>
-                <menuItem title="Notifications" keyEquivalent="," id="2fg-od-dSJ">
-                    <connections>
-                        <action selector="notification:" target="Voe-Tx-rLC" id="iwb-J4-hns"/>
-                        <outlet property="view" destination="8Tx-cb-Mgu" id="8QL-pz-bnp"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="kWF-h4-BEQ"/>
                 <menuItem title="Quit" keyEquivalent="q" id="XTl-Ld-fei">
                     <connections>
                         <action selector="stop:" target="-3" id="F5W-xs-fby"/>
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="584.5" y="393.5"/>
         </menu>
         <viewController id="btk-YI-Pad"/>
-        <customView id="8Tx-cb-Mgu">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qC4-P2-Er9">
-                    <rect key="frame" x="6" y="7" width="154" height="20"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="   Notifacations" id="SSR-Xt-chb">
-                        <font key="font" metaFont="system" size="15"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zYu-nq-XAT">
-                    <rect key="frame" x="128" y="5" width="61" height="19"/>
-                    <buttonCell key="cell" type="roundRect" title="OFF" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yjh-az-Qk1">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="cellTitle"/>
-                    </buttonCell>
-                </button>
-            </subviews>
-        </customView>
         <buttonCell type="check" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="6mc-F0-Ove">
             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
             <font key="font" metaFont="system"/>

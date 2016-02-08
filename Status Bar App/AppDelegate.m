@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#define kAPI_URL @"https://data.sparkfun.com/output/JxxL7ZLvaMSNMJyOxLYW.json"
+#define kAPI_URL @"https://data.sparkfun.com/output/JxxL7ZLvaMSNMJyOxLYW.json?limit=1"
 #define kRefreshRateInSeconds 15
 
 @interface AppDelegate () {
@@ -42,30 +42,16 @@
             if (!error) {
                 NSMutableArray* response =  [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
                 NSString* status = response[0][@"status"];
-                
-                if ([_button.title isEqualToString:@"ON"]) {
-                    NSUserNotification *notification = [[NSUserNotification alloc] init];
-                    notification.title = @"The bathroom is";
-                    notification.informativeText = status;
-                    notification.soundName = NSUserNotificationDefaultSoundName;
-                    
-                    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
-                }
-                
+
                 NSString* imageName = [status isEqualToString:@"Vacant"] ? @"icon-black" : @"icon-blue";
                 self.statusBar.image = [NSImage imageNamed:imageName];
                 self.statusBar.title = status;
                 _connectionStarted = NO;
+            } else {
+                _connectionStarted = NO;
+                NSLog(@"error = %@", error);
             }
         }];
-    }
-}
-
-- (IBAction)notification:(id)sender {
-    if ([_button.title isEqualToString:@"OFF"]) {
-        _button.title = @"ON";
-    } else {
-        _button.title = @"OFF";
     }
 }
 

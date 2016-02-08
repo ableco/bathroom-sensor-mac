@@ -201,6 +201,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kiera Cawley";
 				TargetAttributes = {
+					934F363D1992AB6D008E3300 = {
+						DevelopmentTeam = BS43C6DLVX;
+					};
 					934F365E1992AB6D008E3300 = {
 						TestTargetID = 934F363D1992AB6D008E3300;
 					};

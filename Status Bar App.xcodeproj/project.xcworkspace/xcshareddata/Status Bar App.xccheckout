@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>DAB1FA6E-59F1-483C-B55B-FD74A75E2459</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Status Bar App</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8B420A78F16E11618A982BA19F62DAD4EE4503CA</key>
 		<string>github.com:disrupto/bathroom-sensor-mac.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Status Bar App.xcodeproj</string>
+	<string>Status Bar App.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8B420A78F16E11618A982BA19F62DAD4EE4503CA</key>
